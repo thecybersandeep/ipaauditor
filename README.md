@@ -9,23 +9,14 @@
 </p>
 
 <p align="center">
-  <a href="https://ipaauditor.com/">Live</a> •
-  <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#security-checks">Security Checks</a>
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Platform-Web-blue?style=flat-square" alt="Platform">
   <img src="https://img.shields.io/badge/Checks-50%2B%20OWASP%20MASVS-green?style=flat-square" alt="Security Checks">
   <img src="https://img.shields.io/badge/Privacy-100%25%20Client--Side-purple?style=flat-square" alt="Privacy">
-  <img src="https://img.shields.io/github/license/thecybersandeep/ipaauditor?style=flat-square" alt="License">
 </p>
 
 
 <p align="center">
-  <a href="https://ipaauditor.com">🌐 Live Demo</a> •
+  <a href="https://ipaauditor.com">🌐 Live Demo</a>
 </p>
 
 ---
