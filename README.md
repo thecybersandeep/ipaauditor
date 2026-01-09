@@ -13,17 +13,13 @@
 
 <p align="center">
   <a href="https://ipaauditor.com">🌐 Live Demo</a> •
-  <a href="#features">✨ Features</a> •
-  <a href="#security-checks">🔍 Security Checks</a> •
-  <a href="#usage">📖 Usage</a> •
-  <a href="#contributing">🤝 Contributing</a>
 </p>
 
 ---
 
 ## 🎯 Overview
 
-**IPA Auditor** is a powerful, browser-based static security analysis tool for iOS applications. It performs comprehensive security assessments of IPA files without uploading any data to external servers — everything runs locally in your browser using JavaScript.
+**IPA Auditor** is a powerful, browser-based static security analysis tool for iOS applications. It performs comprehensive security assessments of IPA files without uploading any data to external servers everything runs locally in your browser using JavaScript.
 
 Perfect for:
 - 🔒 Security Researchers
@@ -148,8 +144,6 @@ Generate professional PDF reports containing:
 
 This tool performs **pattern-based static analysis** only:
 
-- It is **NOT** a code analyzer or decompiler
-- Results require **manual verification**
 - False positives are possible
 - Does not perform dynamic/runtime analysis
 - Binary analysis extracts strings, not code logic
@@ -162,16 +156,6 @@ This tool performs **pattern-based static analysis** only:
 - **plist.js** - Property list parsing
 - **jsPDF** - PDF report generation
 - **Vanilla JS** - No framework dependencies
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📝 License
 
@@ -186,8 +170,6 @@ If you find this tool useful, please consider giving it a ⭐ on GitHub!
 **Sandeep**
 
 - GitHub: [@thecybersandeep](https://github.com/thecybersandeep)
-- LinkedIn: [integeroverflow](https://linkedin.com/in/integeroverflow)
-- Website: [ipaauditor.com](https://ipaauditor.com)
 
 ## 🔗 Related Projects
 
