@@ -1,15 +1,28 @@
-<div align="center">
-  <img src="https://img.shields.io/badge/iOS-Security-blue?style=for-the-badge&logo=apple" alt="iOS Security">
-  <img src="https://img.shields.io/badge/100%25-Client--Side-green?style=for-the-badge" alt="Client-Side">
-  <img src="https://img.shields.io/badge/50+-Vulnerability%20Checks-red?style=for-the-badge" alt="50+ Checks">
-</div>
-
-<h1 align="center">🔐 IPA Auditor</h1>
+# IPA Auditor
 
 <p align="center">
-  <strong>Professional iOS Security Analysis Tool</strong><br>
-  Analyze IPA files entirely in your browser. No uploads. Complete privacy.
+  <img src="https://ipaauditor.com/logo.svg" alt="IPA Auditor Logo" width="120">
 </p>
+
+<p align="center">
+  <strong>iOS Static Security Analysis Platform</strong>
+</p>
+
+<p align="center">
+  <a href="https://ipaauditor.com/">Live</a> •
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#security-checks">Security Checks</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Web-blue?style=flat-square" alt="Platform">
+  <img src="https://img.shields.io/badge/Checks-50%2B%20OWASP%20MASVS-green?style=flat-square" alt="Security Checks">
+  <img src="https://img.shields.io/badge/Privacy-100%25%20Client--Side-purple?style=flat-square" alt="Privacy">
+  <img src="https://img.shields.io/github/license/thecybersandeep/ipaauditor?style=flat-square" alt="License">
+</p>
+
 
 <p align="center">
   <a href="https://ipaauditor.com">🌐 Live Demo</a> •
@@ -17,26 +30,25 @@
 
 ---
 
-## 🎯 Overview
+### Overview
 
-**IPA Auditor** is a powerful, browser-based static security analysis tool for iOS applications. It performs comprehensive security assessments of IPA files without uploading any data to external servers everything runs locally in your browser using JavaScript.
+IPA Auditor is a browser-based static security analysis tool for iOS applications. It performs comprehensive security scanning of IPA files based on OWASP MASVS guidelines without requiring any server-side processing or file uploads.
 
-Perfect for:
-- 🔒 Security Researchers
-- 📱 iOS Developers  
-- 🛡️ Penetration Testers
-- 🎓 Security Auditors
+**🔒 100% Client-Side** - All analysis happens in your browser. Your IPA files are never uploaded anywhere.
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
-| **🛡️ Security Scan** | Scans all files for 50+ vulnerability patterns including ATS misconfigurations, insecure storage, weak cryptography, and hardcoded secrets |
-| **💻 Binary Analysis** | Extracts strings from Mach-O executable and checks for PIE, ARC, Stack Canary, and 64-bit compilation |
-| **🔐 Pattern Matching** | Searches for weak crypto usage (MD5, SHA1, DES), hardcoded secrets, API keys, and sensitive strings |
-| **📁 File Inspection** | Lists all files in the IPA bundle including plists, databases, certificates, and embedded resources |
-| **🔑 Permission Check** | Extracts requested entitlements and privacy permissions from the app bundle for review |
-| **📂 File Explorer** | Browse all files in the IPA with hex viewer for binaries and syntax highlighting for text files |
+| 🔍 **Static Analysis** | 50+ security checks based on OWASP MASVS guidelines |
+| 🛡️ **Binary Security** | PIE, ARC, Stack Canary, and encryption verification |
+| 📂 **File Explorer** | Browse IPA contents with syntax highlighting |
+| 🔐 **Secret Detection** | Find hardcoded API keys, tokens, and credentials |
+| 📊 **Plist Analysis** | Parse and analyze Info.plist and embedded plists |
+| 📱 **Permission Audit** | Review app permissions and privacy descriptions |
+| 🔗 **URL Scheme Analysis** | Identify custom URL schemes and deep links |
+| 📈 **Tracker Detection** | Identify embedded analytics and tracking SDKs |
+| 📄 **PDF Reports** | Export detailed security assessment reports |
 
 ## 🔍 Security Checks
 
