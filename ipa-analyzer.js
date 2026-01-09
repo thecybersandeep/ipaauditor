@@ -1,4 +1,4 @@
-/* IPA Auditor - iOS Security Analysis Tool | By Sandeep (https://linkedin.com/in/integeroverflow) */
+/* IPA Auditor - iOS Security Analysis Tool | By Sandeep (https://www.linkedin.com/in/sandeepwawdane/) */
 const state = {
     analysisResults: null,
     zipContent: null,
