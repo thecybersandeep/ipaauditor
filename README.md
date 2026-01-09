@@ -1,7 +1,7 @@
 # IPA Auditor
 
 <p align="center">
-  <img src="https://ipaauditor.com/logo.svg" alt="IPA Auditor Logo" width="120">
+  <img src="https://github.com/user-attachments/assets/4ae2b72d-6d10-4a39-95ab-bc167728b034" alt="IPA Auditor Logo" width="120">
 </p>
 
 <p align="center">
@@ -49,6 +49,26 @@ IPA Auditor is a browser-based static security analysis tool for iOS application
 | 🔗 **URL Scheme Analysis** | Identify custom URL schemes and deep links |
 | 📈 **Tracker Detection** | Identify embedded analytics and tracking SDKs |
 | 📄 **PDF Reports** | Export detailed security assessment reports |
+
+## Screenshots
+
+### 🔐 iOS Security Analysis Dashboard
+Modern, client-side iOS security analysis interface. Upload IPA files securely and perform deep static analysis without any data leaving your browser.
+
+
+
+---
+
+### 🧩 Security Findings & Vulnerability Analysis
+Comprehensive security findings categorized by severity with detailed remediation guidance based on OWASP MASVS.
+
+
+
+---
+
+### 📁 IPA File Explorer with Hex Viewer
+Full-featured file browser with syntax highlighting, hex viewer, and string extraction for binary analysis.
+
 
 ## 🔍 Security Checks
 
@@ -152,15 +172,11 @@ Generate professional PDF reports containing:
 - Detected trackers/SDKs
 - CWE and OWASP references
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-This tool performs **pattern-based static analysis** only:
+This tool is intended for authorized security testing and educational purposes only. Users are responsible for ensuring they have proper authorization before analyzing any application. The authors are not responsible for any misuse of this tool.
 
-- False positives are possible
-- Does not perform dynamic/runtime analysis
-- Binary analysis extracts strings, not code logic
-
-**Always have findings validated by a security professional.**
+**Note:** This is an automated pattern-matching scanner, NOT a comprehensive security audit. Results are indicative only and require manual verification by a qualified security professional.
 
 ## 🛠️ Built With
 
@@ -173,15 +189,14 @@ This tool performs **pattern-based static analysis** only:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🌟 Star History
 
-If you find this tool useful, please consider giving it a ⭐ on GitHub!
-
-## 👨‍💻 Author
+## Author
 
 **Sandeep**
 
+- LinkedIn: [@integeroverflow](https://www.linkedin.com/in/integeroverflow/)
 - GitHub: [@thecybersandeep](https://github.com/thecybersandeep)
+
 
 ## 🔗 Related Projects
 
