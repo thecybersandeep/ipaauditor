@@ -187,7 +187,7 @@ This tool is intended for authorized security testing and educational purposes o
 
 **Sandeep**
 
-- LinkedIn: [@integeroverflow](https://www.linkedin.com/in/sandeepwawdane/)
+- LinkedIn: [@sandeepwawdane](https://www.linkedin.com/in/sandeepwawdane/)
 - GitHub: [@thecybersandeep](https://github.com/thecybersandeep)
 
 
