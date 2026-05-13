@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /src/analyzer.worker.js
+
+Sitemap: https://ipaauditor.com/sitemap.xml
