@@ -116,4 +116,7 @@ This is a static scanner. Pattern matching plus header parsing. It will miss thi
 
 [Sandeep Wawdane](https://github.com/thecybersandeep) · [LinkedIn](https://www.linkedin.com/in/sandeepwawdane/)
 
-Companion project: [ADB Auditor](https://adbauditor.com) for Android.
+## Sister tools
+
+- [APK Auditor](https://apkauditor.com) - drag-drop Android APK static analyzer
+- [ADB Auditor](https://adbauditor.com) - live Android audit over WebUSB and ADB

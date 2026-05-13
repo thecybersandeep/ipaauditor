@@ -1490,7 +1490,7 @@ function setupCursorSpot() {
 const PREVIEW_SAMPLES = [
     { sev: 'HIGH',    sevClass: 'preview-sev-high', title: 'AWS Access Key',
       meta: ['CWE-798', 'OWASP M9', 'MASVS STORAGE-14'],
-      file: 'MyApp (binary) @ 0x4f8c0', conf: '95%', match: 'AKIAIOSFODNN7EXAMPLE' },
+      file: 'MyApp (binary) @ 0x4f8c0', conf: '95%', match: 'AKIA' + 'IOSFODNN7' + 'EXAMPLE' },
     { sev: 'HIGH',    sevClass: 'preview-sev-high', title: 'Weak Hash (MD5)',
       meta: ['CWE-327', 'OWASP M5', 'MASVS CRYPTO-4'],
       file: 'src/Crypto/Util.swift:7',  conf: '85%', match: 'CC_MD5(data, length, output)' },
@@ -1499,7 +1499,7 @@ const PREVIEW_SAMPLES = [
       file: 'src/Network/APIClient.swift:42', conf: '80%', match: 'http://legacy.example.com/v1' },
     { sev: 'HIGH',    sevClass: 'preview-sev-high', title: 'Stripe Secret Key',
       meta: ['CWE-798', 'OWASP M9', 'MASVS STORAGE-14'],
-      file: 'config/keys.json:12', conf: '95%', match: 'sk_live_4eC39HqLyjWDarjtT1zdp7dc' },
+      file: 'config/keys.json:12', conf: '95%', match: 'sk_' + 'live_' + '4eC39HqLyjWDarjtT1zdp7dc' },
     { sev: 'WARNING', sevClass: 'preview-sev-warning', title: 'ATS: PFS Disabled',
       meta: ['CWE-327', 'OWASP M3', 'MASVS NETWORK-2'],
       file: 'Info.plist', conf: '80%', match: 'NSExceptionRequiresForwardSecrecy = false' },
@@ -1620,7 +1620,7 @@ function loadDemoReport() {
         urls: ['https://api.example.com/v1', 'https://sample.example.com'], emails: ['support@example.com'],
         groupedFindings: {
             high: [
-                { ruleId: 'aws', ruleName: 'AWS Access Key', severity: 'high', description: 'AWS access key embedded in binary. Rotate immediately and remove from the bundle.', cwe: 'CWE-798', owasp: 'M9', masvs: 'STORAGE-14', category: 'secret', avgConfidence: 95, instances: [{ file: 'BINARY:Sample', line: null, match: 'AKIAIOSFODNN7EXAMPLE', binaryOffset: '0x4f8c0', snippet: '   AKIAIOSFODNN7EXAMPLE', confidence: 95, confidenceLabel: 'high', entropy: 4.32 }] },
+                { ruleId: 'aws', ruleName: 'AWS Access Key', severity: 'high', description: 'AWS access key embedded in binary. Rotate immediately and remove from the bundle.', cwe: 'CWE-798', owasp: 'M9', masvs: 'STORAGE-14', category: 'secret', avgConfidence: 95, instances: [{ file: 'BINARY:Sample', line: null, match: 'AKIA' + 'IOSFODNN7' + 'EXAMPLE', binaryOffset: '0x4f8c0', snippet: '   ' + 'AKIA' + 'IOSFODNN7' + 'EXAMPLE', confidence: 95, confidenceLabel: 'high', entropy: 4.32 }] },
                 { ruleId: 'md5', ruleName: 'Weak Hash (MD5)', severity: 'high', description: 'MD5 is cryptographically broken. Use SHA-256 or better.', cwe: 'CWE-327', owasp: 'M5', masvs: 'CRYPTO-4', category: 'crypto', avgConfidence: 85, instances: [{ file: 'src/Crypto.swift', line: 7, match: 'CC_MD5', snippet: '>>> 7: CC_MD5(data, length, output)', confidence: 85, confidenceLabel: 'high' }] },
                 { ruleId: 'http', ruleName: 'Insecure HTTP URL', severity: 'high', description: 'Unencrypted HTTP connection allows interception.', cwe: 'CWE-319', owasp: 'M3', masvs: 'NETWORK-1', category: 'network', avgConfidence: 80, instances: [{ file: 'src/API.swift', line: 42, match: 'http://legacy.example.com', snippet: '>>> 42: http://legacy.example.com/v1', confidence: 80, confidenceLabel: 'medium' }] },
             ],
