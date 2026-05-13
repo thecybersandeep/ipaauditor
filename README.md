@@ -2,7 +2,7 @@
 
 iOS static security analysis that runs entirely in your browser. Drop an `.ipa`, get a report.
 
-Live: **[ipaauditor.com](https://ipaauditor.com)** &nbsp;·&nbsp; Sample: [ipaauditor.com/?demo=1](https://ipaauditor.com/?demo=1)
+Live: **[ipaauditor.com](https://ipaauditor.com)**
 
 ![IPA Auditor](docs/screenshots/landing-dark.png)
 
