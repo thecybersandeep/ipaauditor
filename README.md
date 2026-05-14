@@ -2,7 +2,7 @@
 
 iOS static security analysis that runs entirely in your browser. Drop an `.ipa`, get a report.
 
-Live: **[ipaauditor.com](https://ipaauditor.com)** &nbsp;·&nbsp; Sample: [ipaauditor.com/?demo=1](https://ipaauditor.com/?demo=1)
+Live: **[ipaauditor.com](https://ipaauditor.com)**
 
 ![IPA Auditor](docs/screenshots/landing-dark.png)
 
@@ -19,29 +19,7 @@ Parses the bundle, the Mach-O executable, the embedded provisioning profile and 
 - Heavy work runs in a Web Worker with per-file progress. Falls back to main-thread on `file://`.
 - Export: PDF, JSON, CSV, SARIF 2.1.
 
-## Screenshots
-
-### Overview
-
-![Overview tab with security score and stats](docs/screenshots/overview.png)
-
-### Findings
-
-![Findings list grouped by rule with confidence and severity](docs/screenshots/findings.png)
-
-### Binary
-
-![Mach-O hardening checks and segments table](docs/screenshots/binary.png)
-
-### Entitlements & Provisioning
-
-![Provisioning profile metadata and entitlements table](docs/screenshots/entitlements.png)
-
-### App Transport Security
-
-![Per-domain ATS exceptions with TLS / PFS / pinning columns](docs/screenshots/ats.png)
-
-### Light mode
+## Light mode
 
 ![Light theme landing page](docs/screenshots/landing-light.png)
 
