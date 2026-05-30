@@ -204,7 +204,13 @@ function parse(bytes) {
     if (!located) return { error: 'No embedded plist found in CMS data', size: bytes.length };
 
     const xml = decodeUTF8(located.bytes);
-    const plist = parseXMLPlist(xml);
+    // Prefer the shared plist parser (plist.js is imported before this module and
+    // works without DOMParser, which is undefined in a Web Worker). Fall back to
+    // the local DOM-based parser on the main thread.
+    const sharedPlist = (typeof self !== 'undefined' && self.IPAA && self.IPAA.Plist);
+    const plist = (sharedPlist && typeof sharedPlist.parseXMLPlist === 'function')
+        ? sharedPlist.parseXMLPlist(xml)
+        : parseXMLPlist(xml);
     if (!plist) return { error: 'Failed to parse embedded XML plist', xml };
 
     const certs = (plist.DeveloperCertificates || []).map(b64 => {

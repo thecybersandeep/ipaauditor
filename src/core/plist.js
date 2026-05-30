@@ -158,12 +158,17 @@ function decodeUTF8(bytes) {
 }
 
 function parseXMLPlist(xml) {
-    if (typeof DOMParser === 'undefined') return null;
-    const doc = new DOMParser().parseFromString(xml, 'text/xml');
-    if (doc.querySelector('parsererror')) return null;
-    const top = doc.querySelector('plist > dict, plist > array');
-    if (!top) return null;
-    return _node(top);
+    if (typeof DOMParser !== 'undefined') {
+        const doc = new DOMParser().parseFromString(xml, 'text/xml');
+        if (doc.querySelector('parsererror')) return null;
+        const top = doc.querySelector('plist > dict, plist > array');
+        if (!top) return null;
+        return _node(top);
+    }
+    // No DOMParser (e.g. inside a Web Worker): parse with a small, dependency-free
+    // XML parser and reuse the same node walker.
+    const top = parseXMLPlistTop(xml);
+    return top ? _node(top) : null;
 }
 
 function _node(node) {
@@ -187,6 +192,98 @@ function _node(node) {
         }
         default: return node.textContent;
     }
+}
+
+// Returns the first <dict> or <array> directly under <plist> as a lightweight
+// node ({ tagName, children, textContent }) compatible with _node(), or null.
+// Used when DOMParser is unavailable (Web Worker context).
+function parseXMLPlistTop(xml) {
+    const root = parseXMLTree(xml);
+    const plistEl = findElement(root, 'plist');
+    if (!plistEl) return null;
+    for (const child of plistEl.children) {
+        if (child.tagName === 'dict' || child.tagName === 'array') return child;
+    }
+    return null;
+}
+
+// Minimal XML parser -> lightweight element tree. Handles the well-formed XML
+// property lists Apple emits (declarations, DOCTYPE, comments, CDATA, entities,
+// self-closing tags). Attributes are ignored. Each node exposes tagName /
+// children (array) / textContent - the DOM subset that _node() relies on.
+function parseXMLTree(xml) {
+    const root = { tagName: '#document', children: [], textContent: '' };
+    const stack = [root];
+    let i = 0;
+    const n = xml.length;
+    while (i < n) {
+        const lt = xml.indexOf('<', i);
+        if (lt === -1) break;
+        if (lt > i) {
+            stack[stack.length - 1].textContent += decodeXMLEntities(xml.slice(i, lt));
+        }
+        if (xml.startsWith('<!--', lt)) {                 // comment
+            const end = xml.indexOf('-->', lt + 4);
+            i = end === -1 ? n : end + 3;
+        } else if (xml.startsWith('<![CDATA[', lt)) {     // CDATA (kept verbatim)
+            const end = xml.indexOf(']]>', lt + 9);
+            stack[stack.length - 1].textContent += xml.slice(lt + 9, end === -1 ? n : end);
+            i = end === -1 ? n : end + 3;
+        } else if (xml.startsWith('<?', lt)) {             // declaration / PI
+            const end = xml.indexOf('?>', lt + 2);
+            i = end === -1 ? n : end + 2;
+        } else if (xml.startsWith('<!', lt)) {             // DOCTYPE etc.
+            const end = xml.indexOf('>', lt + 2);
+            i = end === -1 ? n : end + 1;
+        } else {
+            const gt = xml.indexOf('>', lt);
+            if (gt === -1) break;
+            let inner = xml.slice(lt + 1, gt);
+            if (inner[0] === '/') {                        // closing tag
+                if (stack.length > 1) stack.pop();
+            } else {
+                const selfClosing = inner.endsWith('/');
+                if (selfClosing) inner = inner.slice(0, -1);
+                const ws = inner.search(/\s/);
+                const tagName = (ws === -1 ? inner : inner.slice(0, ws)).trim();
+                const el = { tagName, children: [], textContent: '' };
+                stack[stack.length - 1].children.push(el);
+                if (!selfClosing) stack.push(el);
+            }
+            i = gt + 1;
+        }
+    }
+    return root;
+}
+
+function decodeXMLEntities(text) {
+    if (text.indexOf('&') === -1) return text;
+    return text.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]*);/g, (m, ent) => {
+        if (ent[0] === '#') {
+            const code = (ent[1] === 'x' || ent[1] === 'X')
+                ? parseInt(ent.slice(2), 16)
+                : parseInt(ent.slice(1), 10);
+            return Number.isNaN(code) ? m : String.fromCodePoint(code);
+        }
+        switch (ent) {
+            case 'lt':   return '<';
+            case 'gt':   return '>';
+            case 'amp':  return '&';
+            case 'quot': return '"';
+            case 'apos': return "'";
+            default:     return m;
+        }
+    });
+}
+
+// Depth-first search for the first element with the given tag name.
+function findElement(node, tagName) {
+    for (const child of node.children) {
+        if (child.tagName === tagName) return child;
+        const found = findElement(child, tagName);
+        if (found) return found;
+    }
+    return null;
 }
 
 function parse(data) {
