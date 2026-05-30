@@ -5,14 +5,14 @@ let workerLoadError = null;
 
 try {
     importScripts(
-        '../lib/jszip.min.js',
-        'core/macho.js',
-        'core/plist.js',
-        'core/provisioning.js',
-        'core/entropy.js',
-        'core/rules.js',
-        'core/ats.js',
-        'core/analyzer.js'
+        '../lib/jszip.min.js?v=20260530',
+        'core/macho.js?v=20260530',
+        'core/plist.js?v=20260530',
+        'core/provisioning.js?v=20260530',
+        'core/entropy.js?v=20260530',
+        'core/rules.js?v=20260530',
+        'core/ats.js?v=20260530',
+        'core/analyzer.js?v=20260530'
     );
     if (self.IPAA && self.IPAA.Analyzer && typeof self.IPAA.Analyzer.analyzeIPA === 'function') {
         workerReady = true;

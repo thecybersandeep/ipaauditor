@@ -72,7 +72,7 @@ function toast(message, type) {
 
 function setupWorker() {
     try {
-        const w = new Worker('src/analyzer.worker.js');
+        const w = new Worker('src/analyzer.worker.js?v=20260530');
         w.addEventListener('error', (e) => {
             console.warn('Worker error:', e.message);
             State.workerFailed = true;
